@@ -47,12 +47,6 @@ Animal::~Animal() {
 }
 
 void Animal::Eat() {
-	if (type == 1) {
-		for (int i = 0; i < P->Table[i]->Position.x > Position.x - foodArea && i < P->Table[i]->Position.x < Position.x + foodArea &&
-			i < P->Table[i]->Position.y > Position.y - foodArea && i < P->Table[i]->Position.y < Position.y + foodArea; i++) {
-			// ??????????????????????????????????????
-		}
-	}
 	
 }
 
@@ -65,11 +59,11 @@ void Animal::PrintInfo() {
 	else std::cout << "Animal type: Herbivore" << std::endl;
 
 	if (hungry == 1) std::cout << "Hungry: NO" << std::endl;
-	else std::cout << "Hungry: YES" << std::endl;
+	else std::cout << "Hungry: YES" << std::endl << "Meals needed to be full: " << foodSupplyPerMeal << std::endl;
 
 	std::cout << "Animal movement speed: " << movementSpeed << std::endl;
 	std::cout << "Animal movement speed: " << movementSpeed << std::endl;
-	std::cout << "Animal food supply per meal: " << foodSupplyPerMeal << std::endl;
+	//std::cout << "Animal food supply per meal: " << foodSupplyPerMeal << std::endl;
 	std::cout << "Animal food area (in meters): " << foodArea << std::endl;
 	std::cout << "Animal age: " << age << std::endl;
 }
