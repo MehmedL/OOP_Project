@@ -53,13 +53,14 @@ void Animal::Eat() {
 void Animal::PrintInfo() {
 	std::cout << "Animal name: " << name << std::endl;
 
+
 	std::cout << "Animal - Position: (" << Position.x << ", " << Position.y << ")" << std::endl;
 
-	if (type == 1) std::cout << "Animal type: Predator" << std::endl;
+	/*if (type == 1) std::cout << "Animal type: Predator" << std::endl;
 	else std::cout << "Animal type: Herbivore" << std::endl;
 
 	if (hungry == 1) std::cout << "Hungry: NO" << std::endl;
-	else std::cout << "Hungry: YES" << std::endl << "Meals needed to be full: " << foodSupplyPerMeal << std::endl;
+	else std::cout << "Hungry: YES" << std::endl << "Meals needed to be full: " << foodSupplyPerMeal << std::endl;*/
 
 	std::cout << "Animal movement speed: " << movementSpeed << std::endl;
 	std::cout << "Animal movement speed: " << movementSpeed << std::endl;
