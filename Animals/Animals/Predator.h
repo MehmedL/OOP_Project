@@ -1,13 +1,23 @@
 #pragma once
-class Predator
+#include "Animal.h"
+class Predator : public Animal
 {
-	char attackWays[20];
+    int attackWeapon; // Средство за нападение
+
 public:
-	Predator(char* attackWays);
-	Predator();
-	~Predator();
-	void printInfo();
-	void feading();
+    Predator();
+    
+    Predator(const TPoint& position, const char* name, int type, int fed, int movementSpeed,
+        int foodSupplyPerMeal, int foodArea, int age, int weapon);
+
+
+    // Пренаписани (override) методи:
+    virtual void Eat() override;
+    virtual void PrintInfo() override;
+
 	
 };
+
+
+
 
