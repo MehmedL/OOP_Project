@@ -1,6 +1,7 @@
 #include "Forest.h"
 #include <iostream>
 
+Forest* P;
 
 //  онструктор Ц инициализира масива с nullptr и бро€ча animalCount на 0
 Forest::Forest() : animalCount(0) {
