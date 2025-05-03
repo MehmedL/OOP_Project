@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string.h>
 #include "Animal.h"
+#include "Forest.h"
+
+extern Forest* P;
 
 Animal::Animal() {
 	name = new char[1];
@@ -13,7 +16,7 @@ Animal::Animal() {
 	age = 0;
 }
 
-Animal::Animal(const TPoint Placement, char* pName, int species, int fed, int speed, int foodPerMeal, int eatingArea, int years) {
+Animal::Animal(const TPoint& Placement, const char* pName, int species, int fed, int speed, int foodPerMeal, int eatingArea, int years) {
 	name = new char[strlen(pName)];			// може да потрябва +1 за '\0', но не съм сигурна, засега ще е така
 	strcpy_s(name, strlen(pName), pName);
 	

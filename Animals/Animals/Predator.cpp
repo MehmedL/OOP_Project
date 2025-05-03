@@ -1,7 +1,9 @@
 #include <iostream>
 #include <cstring>
 #include "Predator.h"
+#include "Forest.h"
 
+extern Forest* P;
 
 Predator::Predator() : Animal() {
     attackWeapon = 0;
@@ -13,22 +15,20 @@ Predator::Predator(const TPoint& Position, const char* name, int type, int fed, 
     : Animal(Position, name, type, fed, movementSpeed, foodSupplyPerMeal, foodArea, age)
     
 {
-    attackWeapon(weapon)
+    this->attackWeapon = weapon;
+
 }
 
 
-
-
-
 void Predator::Eat() {
-    for (int i = 0; i < P->count; i++) {
-        if (P->Table[i]->type == 0 && P->Table[i]->foodSupplyPerMeal > 0 && Position != i) {
+    for (int i = 0; i < P->animalCount; i++) {
+        if (P->animals[i]->type == 0 && P->animals[i]->foodSupplyPerMeal > 0 && Position != P->animals[i]->Position) {
 
-            if (P->Table[i]->Position.x > P->Table[i]->Position.x - P->Table[i]->foodArea && i < P->Table[i]->Position.x < P->Table[i]->Position.x + P->Table[i]->foodArea &&
-                i < P->Table[i]->Position.y > Position.y - foodArea && i < P->Table[i]->Position.y < Position.y + foodArea) {
+            if (P->animals[i]->Position.x > P->animals[i]->Position.x - foodArea && i < P->animals[i]->Position.x < P->animals[i]->Position.x + P->animals[i]->foodArea &&
+                i < P->animals[i]->Position.y > Position.y - foodArea && i < P->animals[i]->Position.y < Position.y + foodArea) {
 
-                for (int j = i; j < P->count - 1; j++) {
-                    P->Table[j] = P->Table[j + 1];
+                for (int j = i; j < P->animalCount - 1; j++) {
+                    P->animals[j] = P->animals[j + 1];
                 }
                 foodSupplyPerMeal--;
             }
@@ -37,8 +37,6 @@ void Predator::Eat() {
         if (foodSupplyPerMeal == 0) {
             hungry = 1;
         }
-
-
     }
 
 }

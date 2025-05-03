@@ -1,6 +1,7 @@
 #include "Forest.h"
 #include <iostream>
 
+
 // Конструктор – инициализира масива с nullptr и брояча animalCount на 0
 Forest::Forest() : animalCount(0) {
     for (int i = 0; i < MAX_ANIMALS; i++) {
@@ -13,6 +14,10 @@ Forest::~Forest() {
     for (int i = 0; i < animalCount; i++) {
         delete animals[i];
     }
+}
+
+int Forest::getAnimalCount() const {
+    return animalCount;
 }
 
 // Отпечатва информация за всяко животно, добавено в гората
