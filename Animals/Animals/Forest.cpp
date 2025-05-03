@@ -16,10 +16,6 @@ Forest::~Forest() {
     }
 }
 
-int Forest::getAnimalCount() const {
-    return animalCount;
-}
-
 // Отпечатва информация за всяко животно, добавено в гората
 void Forest::PrintInfo() const {
     std::cout << "Информация:" << std::endl;

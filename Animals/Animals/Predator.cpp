@@ -28,7 +28,7 @@ void Predator::Eat() {
                 i < P->animals[i]->Position.y > Position.y - foodArea && i < P->animals[i]->Position.y < Position.y + foodArea) {
 
                 for (int j = i; j < P->animalCount - 1; j++) {
-                    P->animals[j] = P->animals[j + 1];
+                    P->animals[j] = P->animals[j + 1]
                 }
                 foodSupplyPerMeal--;
             }
