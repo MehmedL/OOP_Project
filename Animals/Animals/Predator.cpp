@@ -19,27 +19,38 @@ Predator::Predator(const TPoint& Position, const char* name, int type, int fed, 
 
 }
 
-
 void Predator::Eat() {
-    for (int i = 0; i < P->animalCount; i++) {
-        if (P->animals[i]->type == 0 && P->animals[i]->foodSupplyPerMeal > 0 && Position != P->animals[i]->Position) {
+    
+    for (int i = 0; i < P->animalCount; ) {
+        // Ако все още се нуждаем от храна
+        if (foodSupplyPerMeal > 0) {
+            Animal* potentialPrey = P->animals[i];
+            // Проверка: да не се опитваме да ядем себе си и да сме сигурни, че целта е тревопасно (type == 0)
+            if (potentialPrey != this && potentialPrey->type == 0) {
+                int dx = Position.x - potentialPrey->Position.x;
+                int dy = Position.y - potentialPrey->Position.y;
+                double distance = std::sqrt(dx * dx + dy * dy);
 
-            if (P->animals[i]->Position.x > P->animals[i]->Position.x - foodArea && i < P->animals[i]->Position.x < P->animals[i]->Position.x + P->animals[i]->foodArea &&
-                i < P->animals[i]->Position.y > Position.y - foodArea && i < P->animals[i]->Position.y < Position.y + foodArea) {
+                
+                if (distance <= foodArea) {
+                    
+                    P->removeAnimal(i);
+                    
+                    foodSupplyPerMeal--;
 
-                for (int j = i; j < P->animalCount - 1; j++) {
-                    P->animals[j] = P->animals[j + 1]
+                    
+                    continue;
                 }
-                foodSupplyPerMeal--;
             }
         }
-
-        if (foodSupplyPerMeal == 0) {
-            hungry = 1;
-        }
+        
+        i++;
     }
-
+    if (foodSupplyPerMeal == 0) {
+        hungry = 1;
+    }
 }
+
 
 
 void Predator::PrintInfo() {

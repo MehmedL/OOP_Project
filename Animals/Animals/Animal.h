@@ -7,15 +7,18 @@ struct TPoint {
 
 class Animal
 {
-protected:
+public:
 	TPoint Position;
-	char *name;																				// с динамична памет
-	int type;																				// 0 за тревопасно и 1 за хищник
+	int type;
+protected:
+	
+	char *name;																				// с динамична памет																		// 0 за тревопасно и 1 за хищник
 	int hungry;																				// 0 за гладен и 1 за сит
 	int movementSpeed;
 	int foodSupplyPerMeal;
 	int foodArea;
 	int age;
+
 
 public:
 	Animal();																				// default constructor

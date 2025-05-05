@@ -3,11 +3,12 @@
 #include "Animal.h"
 
 class Forest {
+public:
     static const int MAX_ANIMALS = 30;  // Максимален капацитет на масива
     Animal* animals[MAX_ANIMALS];       // Фиксиран масив от указатели към животни
     int animalCount;                    // Брой добавени животни
 
-public:
+
     // Конструктор по подразбиране – инициализира масива и брояча
     Forest();
 
