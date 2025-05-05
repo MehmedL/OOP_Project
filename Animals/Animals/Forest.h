@@ -2,6 +2,9 @@
 
 #include "Animal.h"
 
+class Forest;
+extern Forest* P;
+
 class Forest {
 public:
     static const int MAX_ANIMALS = 30;  // Максимален капацитет на масива

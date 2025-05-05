@@ -1,7 +1,6 @@
 #include "Forest.h"
 #include <iostream>
 
-Forest* P;
 
 // Конструктор – инициализира масива с nullptr и брояча animalCount на 0
 Forest::Forest() : animalCount(0) {
@@ -19,9 +18,9 @@ Forest::~Forest() {
 
 // Отпечатва информация за всяко животно, добавено в гората
 void Forest::PrintInfo() const {
-    std::cout << "Информация:" << std::endl;
+    std::cout << "Information:" << std::endl;
     for (int i = 0; i < animalCount; i++) {
-        std::cout << "Животно " << i << ":" << std::endl;
+        std::cout << "Animal " << i << ":" << std::endl;
         if (animals[i]) {
             animals[i]->PrintInfo();
         }
@@ -35,14 +34,14 @@ void Forest::addAnimal(Animal* a) {
         animals[animalCount++] = a;
     }
     else {
-        std::cout << "Няма място за още животни!" << std::endl;
+        std::cout << "Can not include more animals!" << std::endl;
     }
 }
 
 // Премахва животно от масива по даден индекс, освобождавайки паметта и изместване на останалите елементи
 void Forest::removeAnimal(int index) {
     if (index < 0 || index >= animalCount) {
-        std::cout << "Грешка: Невалиден индекс!" << std::endl;
+        std::cout << "Error: invalid index!" << std::endl;
         return;
     }
 
@@ -57,7 +56,7 @@ void Forest::removeAnimal(int index) {
 
 // Симулира един ден в гората: всяко животно се храни чрез извикване на метода Eat
 void Forest::simulateDay() {
-    std::cout << "Симулация на един ден в гората:" << std::endl;
+    std::cout << "One day simulation:" << std::endl;
     for (int i = 0; i < animalCount; i++) {
         if (animals[i]) {
             animals[i]->Eat();

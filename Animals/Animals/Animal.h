@@ -22,7 +22,7 @@ protected:
 
 public:
 	Animal();																				// default constructor
-	Animal(const TPoint& Position,const char* name, int type, int fed, int movementSpeed, int foodSupplyPerMeal, int foodArea, int age);	// constructor с параметри
+	Animal(const TPoint& Position,const char* name, int type, int hungry, int movementSpeed, int foodSupplyPerMeal, int foodArea, int age);	// constructor с параметри
 	Animal(const Animal &animal);															// copy constructor
 	~Animal();																				// destrucor
 	virtual void Eat();																		// ще се наследява и ще е overriden, затова virtual

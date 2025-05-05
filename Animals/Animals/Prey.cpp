@@ -6,7 +6,7 @@ Prey::Prey() : Animal() {
     strcpy_s(deffenseWay, "None");
 }
 
-Prey::Prey(const TPoint Position, char* pName, int fed, int speed, int foodPerMeal, int eatingArea, int years, const char* defWay)
+Prey::Prey(const TPoint Position, const char* pName, int fed, int speed, int foodPerMeal, int eatingArea, int years, const char* defWay)
     : Animal(Position, pName, 0, fed, speed, foodPerMeal, eatingArea, years) {
     strcpy_s(deffenseWay, defWay);
 }

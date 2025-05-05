@@ -3,7 +3,6 @@
 #include "Animal.h"
 #include "Forest.h"
 
-extern Forest* P;
 
 Animal::Animal() {
 	name = new char[1];
@@ -17,11 +16,11 @@ Animal::Animal() {
 }
 
 Animal::Animal(const TPoint& Placement, const char* pName, int species, int fed, int speed, int foodPerMeal, int eatingArea, int years) {
-	name = new char[strlen(pName)];			// може да потрябва +1 за '\0', но не съм сигурна, засега ще е така
-	strcpy_s(name, strlen(pName), pName);
-	
-	Position = Placement;
+	size_t len = strlen(pName) + 1;
+	name = new char[len];
+	strcpy_s(name, len, pName);
 
+	Position = Placement;
 	type = species;
 	hungry = fed;
 	movementSpeed = speed;
@@ -30,13 +29,12 @@ Animal::Animal(const TPoint& Placement, const char* pName, int species, int fed,
 	age = years;
 }
 
-Animal::Animal(const Animal &animal) {
-	int lenght = strlen(animal.name) + 1; // +1 за '\0' май ще потрябва
-	name = new char[lenght];
-	strcpy_s(name, lenght, animal.name); // може да потрябва this->name, засега ще е така
+Animal::Animal(const Animal& animal) {
+	size_t len = strlen(animal.name) + 1;
+	name = new char[len];
+	strcpy_s(name, len, animal.name);
 
 	Position = animal.Position;
-
 	type = animal.type;
 	hungry = animal.hungry;
 	movementSpeed = animal.movementSpeed;
@@ -66,7 +64,7 @@ void Animal::PrintInfo() {
 	else std::cout << "Hungry: YES" << std::endl << "Meals needed to be full: " << foodSupplyPerMeal << std::endl;*/
 
 	std::cout << "Animal movement speed: " << movementSpeed << std::endl;
-	std::cout << "Animal movement speed: " << movementSpeed << std::endl;
+	//std::cout << "Animal movement speed: " << movementSpeed << std::endl;
 	//std::cout << "Animal food supply per meal: " << foodSupplyPerMeal << std::endl;
 	std::cout << "Animal food area (in meters): " << foodArea << std::endl;
 	std::cout << "Animal age: " << age << std::endl;

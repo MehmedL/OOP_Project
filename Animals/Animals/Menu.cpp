@@ -1,20 +1,51 @@
-﻿// Menu.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+﻿#include <iostream>
+#include "Forest.h"
+#include "Predator.h"
+#include "Prey.h"
 
-#include <iostream>
+// Глобален указател към гората
+Forest* P = nullptr;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+int main() {
+    Forest forest;
+    P = &forest;
+
+    std::cout << "Add animals...\n" << std::endl;
+
+    // Добавяме животни
+    
+    // И двамата се хранят
+    //forest.addAnimal(new Prey({ 2, 2 }, "Deer", 0, 3, 4, 4, 2, "Run"));
+    //forest.addAnimal(new Prey({ 4, 1 }, "Goat", 0, 1, 6, 2, 4, "Kick")); 
+
+
+    // Храни се само вълкът
+    //forest.addAnimal(new Prey({ 2, 2 }, "Deer", 0, 3, 4, 4, 2, "Run")); 
+    //forest.addAnimal(new Prey({ 14, 1 }, "Goat", 0, 1, 6, 2, 4, "Kick"));  
+
+
+    // Храни се само тигърът
+    //forest.addAnimal(new Prey({ 2, 2 }, "Deer", 0, 3, 4, 4, 2, "Run"));
+    //forest.addAnimal(new Prey({ 15, 1 }, "Goat", 0, 1, 6, 2, 4, "Kick"));
+
+    //forest.addAnimal(new Predator({ 7, 1 }, "Wolf", 1, 0, 6, 2, 3, 5, 1));
+    //forest.addAnimal(new Predator({ 14, 2 }, "Tiger", 1, 0, 5, 2, 5, 8, 2)); 
+
+
+    // Никой не се храни
+    forest.addAnimal(new Prey({ 22, 22 }, "Deer", 0, 3, 4, 4, 2, "Run")); 
+    forest.addAnimal(new Prey({ 15, 15 }, "Goat", 0, 1, 6, 2, 4, "Kick"));
+
+    forest.addAnimal(new Predator({ 2, 1 }, "Wolf", 1, 0, 6, 2, 3, 5, 1));
+    forest.addAnimal(new Predator({ 4, 2 }, "Tiger", 1, 0, 5, 2, 5, 8, 2));
+
+
+    std::cout << "\n=== Day 1: Simulate one day ===\n" << std::endl;
+    forest.PrintInfo();
+    forest.simulateDay();
+
+    std::cout << "\n=== Forest after one day ===\n" << std::endl;
+    forest.PrintInfo();
+
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
